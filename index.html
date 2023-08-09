@@ -5,6 +5,7 @@
   </head>
   <body>
     <h2>Welcome to Hulalaa!!!</h2>
+    <h5>Give the input of format: http://ip-10-120-61-91.modeln.com:8042/</h5>
     URL: <input type="text" placeholder="Type the wrong url" id="myInput">
     <button type="button" onclick="openTab();">Go to website</button>
   
@@ -12,15 +13,21 @@
     console.log("Welcome to Hulalaa!!!");
     function openTab() {
         let http = 'http://';
-        let tail = "logs/containers";
+        let tail = "/logs/containers";
         let str = document.getElementById("myInput").value;
         let port = str.split(":")[2];
+        console.log('port0: ', port);
+        let char = port.charAt(port.length - 1);
+        console.log('char: ', char);
+        if(char === "/") {
+         port =  port.slice(0,-1)
+        }
         console.log("port: ", port);
         let ip = str.split(".")[0].split(".")[0].split("-").slice(1).join(".");
         console.log("words: ", ip);
         url = http.concat(ip).concat(":").concat(port).concat(tail);
         console.log(url);
-      window.open(url, "_blank");
+        window.open(url, "_blank");
     }
   </script>
 
