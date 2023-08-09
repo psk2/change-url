@@ -5,23 +5,21 @@
   </head>
   <body>
     URL: <input type="text" placeholder="Type the wrong url" id="myInput">
-    <button type="button" onclick="openTab();">Get Value</button>
+    <button type="button" onclick="openTab();">Go to website</button>
   
   <script>
     console.log("Welcome to Hulalaa!!!");
-    
-    let http = 'http://';
-    let tail = "/logs/containers";
-    let str = document.getElementById("myInput").value;
-    let port = str.split(":")[2];
-    console.log("port: ", port);
-    let ip = str.split(".")[0].split(".")[0].split("-").slice(1).join(".");
-    console.log("words: ", ip);
-    url = http.concat(ip).concat(":").concat(port).concat(tail);
-    console.log(url);
-    window.open(url, "_blank");
     function openTab() {
-      window.open("https://www.educative.io/", "_blank");
+        let http = 'http://';
+        let tail = "/logs/containers";
+        let str = document.getElementById("myInput").value;
+        let port = str.split(":")[2];
+        console.log("port: ", port);
+        let ip = str.split(".")[0].split(".")[0].split("-").slice(1).join(".");
+        console.log("words: ", ip);
+        url = http.concat(ip).concat(":").concat(port).concat(tail);
+        console.log(url);
+      window.open(url, "_blank");
     }
   </script>
 
